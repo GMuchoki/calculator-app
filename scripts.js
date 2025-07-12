@@ -1,31 +1,25 @@
-const btn = document.getElementById('btn1');
+const display = document.getElementById('display');
 
-btn.addEventListener('click', 
-    function displayNum () {
-    const inputDisplay = document.getElementById('display');
-    inputDisplay.value += "1";
-});
-
-const btn2 = document.getElementById('btn2');
-
-btn2.addEventListener('click', 
-    function displayNum () {
-    const inputDisplay = document.getElementById('display');
-    inputDisplay.value += "2";
-});
-
-const btn3 = document.getElementById('btn3');
-
-btn3.addEventListener('click', 
-    function displayNum () {
-    const inputDisplay = document.getElementById('display');
-    inputDisplay.value += "3";
-});
+function appendToDisplay (input) {
+    display.value += input;
+};
 
 
-const btnClearDisplay = document.getElementById('btn-clear-display');
+function clearDisplay () {
+    display.value = '';
+};
 
-btnClearDisplay.addEventListener('click', 
-    function clearDisplay() {
-    document.getElementById('display').value = '';
-});
+
+function delLastDisplay () {
+    display.value = display.value.slice(0, -1);
+};
+
+
+function displayCalculations () {
+    try{
+        display.value = eval(display.value)
+    } catch (error){
+        display.value = 'ERROR';
+    };
+    
+};
